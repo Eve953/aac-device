@@ -16,22 +16,50 @@ def App():
     window.setStyleSheet("background-color: black;")
     window.setWindowTitle("AAC Device")
 
-    hi_button = QPushButton("Hi")
-    hi_button.setStyleSheet("""
+    no_button = QPushButton("No")
+    no_button.setStyleSheet("""
     background-color: #ffd9cc;
     color: black;
+    font-size: 36px;
     border-radius: 10px;
+                            
+                        
 """)
-    hi_button.setFixedSize(120, 120)
+    
+    no_button.setFixedSize(400, 200)
+    
+    yes_button = QPushButton("Yes")
+    yes_button.setStyleSheet("""
+    background-color: #ffd9cc;
+    color: black;
+    font-size: 36px;
+    border-radius: 10px;
+                            
+                        
+""")
+    
+    yes_button.setFixedSize(400, 200)
  
 
-
+    i_button = QPushButton("I")
+    i_button.setStyleSheet("""
+    background-color: #ffd9cc;
+    color: black;
+    font-size: 36px;
+    border-radius: 10px;
+                            
+                        
+""")
+    
+    i_button.setFixedSize(400, 200)
    
     layout.setContentsMargins(10, 10, 10, 10)
     
 
-    layout.addWidget(hi_button, 0, 0)
-    layout.setSpacing(10)
+    layout.addWidget(no_button, 0, 0)
+    layout.addWidget(yes_button, 0, 1)
+    layout.addWidget(i_button, 1, 0)
+    layout.setSpacing(5)
 
 
 
