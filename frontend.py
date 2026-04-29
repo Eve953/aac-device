@@ -3,7 +3,6 @@ from PyQt5 import QtCore
 from PyQt5.QtGui import * 
 import sys
 
-
 def App():
     app = QApplication(sys.argv)
     window = QMainWindow()
@@ -16,149 +15,55 @@ def App():
     window.setStyleSheet("background-color: black;")
     window.setWindowTitle("AAC Device")
 
-    no_button = QPushButton("No")
-    no_button.setStyleSheet("""
-    background-color: #ffd9cc;
-    color: black;
-    font-size: 36px;
-    border-radius: 10px;
-                            
-                        
-""")
-    
-    no_button.setFixedSize(400, 200)
-    
+    # button styling (may change later)
+    button_style = """
+        background-color: #ffd9cc;
+        color: black;
+        font-size: 36px;
+        border-radius: 10px;
+    """
+
+    # Button Creation
     yes_button = QPushButton("Yes")
-    yes_button.setStyleSheet("""
-    background-color: #ffd9cc;
-    color: black;
-    font-size: 36px;
-    border-radius: 10px;
-                            
-                        
-""")
-    
+    yes_button.setStyleSheet(button_style)
     yes_button.setFixedSize(400, 200)
- 
 
-    hi_button = QPushButton("Hi")
-    hi_button.setStyleSheet("""
-    background-color: #ffd9cc;
-    color: black;
-    font-size: 36px;
-    border-radius: 10px;
-                            
-                        
-""")
-    
-    hi_button.setFixedSize(400, 200)
-
-    bye_button = QPushButton("Bye")
-    bye_button.setStyleSheet("""
-    background-color: #ffd9cc;
-    color: black;
-    font-size: 36px;
-    border-radius: 10px;
-                            
-                        
-""")
-    
-    bye_button.setFixedSize(400, 200)
+    no_button = QPushButton("No")
+    no_button.setStyleSheet(button_style)
+    no_button.setFixedSize(400, 200)
 
     help_button = QPushButton("Help")
-    help_button.setStyleSheet("""
-    background-color: #ffd9cc;
-    color: black;
-    font-size: 36px;
-    border-radius: 10px;
-                            
-                        
-""")
-    
+    help_button.setStyleSheet(button_style)
     help_button.setFixedSize(400, 200)
 
-    bathroom_button = QPushButton("Bathroom")
-    bathroom_button.setStyleSheet("""
-    background-color: #ffd9cc;
-    color: black;
-    font-size: 36px;
-    border-radius: 10px;
-                            
-                        
-""")
-    
-    bathroom_button.setFixedSize(400, 200)
-
     hungry_button = QPushButton("Hungry")
-    hungry_button.setStyleSheet("""
-    background-color: #ffd9cc;
-    color: black;
-    font-size: 36px;
-    border-radius: 10px;
-                            
-                        
-""")
-    
+    hungry_button.setStyleSheet(button_style)
     hungry_button.setFixedSize(400, 200)
 
     thirsty_button = QPushButton("Thirsty")
-    thirsty_button.setStyleSheet("""
-    background-color: #ffd9cc;
-    color: black;
-    font-size: 36px;
-    border-radius: 10px;
-                            
-                        
-""")
-    
+    thirsty_button.setStyleSheet(button_style)
     thirsty_button.setFixedSize(400, 200)
 
-    i_button = QPushButton("I")
-    i_button.setStyleSheet("""
-    background-color: #ffd9cc;
-    color: black;
-    font-size: 36px;
-    border-radius: 10px;
-                            
-                        
-""")
-    
-    i_button.setFixedSize(400, 200)
+    bathroom_button = QPushButton("Bathroom")
+    bathroom_button.setStyleSheet(button_style)
+    bathroom_button.setFixedSize(400, 200)
 
-    need_button = QPushButton("Need")
-    need_button.setStyleSheet("""
-    background-color: #ffd9cc;
-    color: black;
-    font-size: 36px;
-    border-radius: 10px;
-                            
-                        
-""")
-    
-    need_button.setFixedSize(400, 200)
-   
+    # Layout Management
     layout.setContentsMargins(10, 10, 10, 10)
-    
-
-    layout.addWidget(no_button, 0, 0)
-    layout.addWidget(yes_button, 0, 1)
-    layout.addWidget(hi_button, 1, 0)
-    layout.addWidget(bye_button, 1, 1)
-    layout.addWidget(help_button, 2, 0)
-    layout.addWidget(bathroom_button, 2, 1)
-    layout.addWidget(hungry_button, 3, 0)
-    layout.addWidget(thirsty_button, 3, 1)
-    layout.addWidget(i_button, 3, 2)
-    layout.addWidget(need_button, 3, 3)
-
     layout.setSpacing(10)
 
+    # General/Social Needs
+    layout.addWidget(yes_button, 0, 0)
+    layout.addWidget(no_button, 0, 1)
+    layout.addWidget(help_button, 0, 2)
 
-
-
-
+    # Physical Needs
+    layout.addWidget(hungry_button, 1, 0)
+    layout.addWidget(thirsty_button, 1, 1)
+    layout.addWidget(bathroom_button, 1, 2)
 
     window.showMaximized()
     sys.exit(app.exec_())
 
-App()
+if __name__ == "__main__":
+    App()
