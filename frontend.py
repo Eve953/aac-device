@@ -32,6 +32,7 @@ def App():
     border-radius: 15px;
         """
     # Button Creation
+        # social buttons
     yes_button = QPushButton("Yes")
     yes_button.setStyleSheet(social_style)
     yes_button.setFixedSize(400, 200)
@@ -44,6 +45,7 @@ def App():
     help_button.setStyleSheet(social_style)
     help_button.setFixedSize(400, 200)
 
+    # needs buttons 
     hungry_button = QPushButton("Hungry")
     hungry_button.setStyleSheet(needs_style)
     hungry_button.setFixedSize(400, 200)
