@@ -1,76 +1,87 @@
-from PyQt5.QtWidgets import * 
+from PyQt5.QtWidgets import *
 from PyQt5 import QtCore
 from PyQt5.QtGui import * 
 import sys
+
+# FUNCTION FOR THE PICTURE AND TEXT LAYOUT
+def create_stacked_button(button, text, icon_path):
+    layout = QVBoxLayout(button)
+    layout.setContentsMargins(5, 10, 5, 10)
+    layout.setSpacing(5)
+
+    # AAC WORD LABEL
+    label = QLabel(text)
+    label.setAlignment(QtCore.Qt.AlignCenter)
+    label.setStyleSheet("font-size: 30px; font-weight: bold; border: none; background: transparent; color: black;")
+    
+    # 2. ICON 
+    icon_label = QLabel()
+    pixmap = QPixmap(icon_path).scaled(100, 100, QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
+    icon_label.setPixmap(pixmap)
+    icon_label.setAlignment(QtCore.Qt.AlignCenter)
+    icon_label.setStyleSheet("border: none; background: transparent;")
+    
+    layout.addWidget(label)
+    layout.addWidget(icon_label)
 
 def App():
     app = QApplication(sys.argv)
     window = QMainWindow()
 
     central_widget = QWidget()
-    layout = QGridLayout()
-
-    central_widget.setLayout(layout)
+    grid_layout = QGridLayout()
+    central_widget.setLayout(grid_layout)
     window.setCentralWidget(central_widget)              
     window.setStyleSheet("background-color: black;")
     window.setWindowTitle("AAC Device")
 
-    # button styling (may change later)
-    # Blue for Social/General
-    social_style = """
-    background-color: #add8e6; 
-    color: black;
-    font-size: 36px;
-    border-radius: 15px;
-        """
+    # STYLES FOR THE BUTTONS
+    social_style = "background-color: #add8e6; border-radius: 18px;"
+    needs_style = "background-color: #b1e4b1; border-radius: 18px;"
 
-# Green for Physical Needs
-    needs_style = """
-    background-color: #b1e4b1;
-    color: black;
-    font-size: 36px;
-    border-radius: 15px;
-        """
-    # Button Creation
-        # social buttons
-    yes_button = QPushButton("Yes")
-    yes_button.setStyleSheet(social_style)
-    yes_button.setFixedSize(400, 200)
+    # SOCIAL BUTTONS, FIRST ROW
+    yes_btn = QPushButton()
+    yes_btn.setStyleSheet(social_style)
+    yes_btn.setFixedSize(400, 200)
+    create_stacked_button(yes_btn, "Yes", "pictures/yes.png")
 
-    no_button = QPushButton("No")
-    no_button.setStyleSheet(social_style)
-    no_button.setFixedSize(400, 200)
+    no_btn = QPushButton()
+    no_btn.setStyleSheet(social_style)
+    no_btn.setFixedSize(400, 200)
+    create_stacked_button(no_btn, "No", "pictures/no.png")
 
-    help_button = QPushButton("Help")
-    help_button.setStyleSheet(social_style)
-    help_button.setFixedSize(400, 200)
+    help_btn = QPushButton()
+    help_btn.setStyleSheet(social_style)
+    help_btn.setFixedSize(400, 200)
+    create_stacked_button(help_btn, "Help", "pictures/help.png")
 
-    # needs buttons 
-    hungry_button = QPushButton("Hungry")
-    hungry_button.setStyleSheet(needs_style)
-    hungry_button.setFixedSize(400, 200)
+    # NEEDS BUTTONS, SECOND ROW
+    hungry_btn = QPushButton()
+    hungry_btn.setStyleSheet(needs_style)
+    hungry_btn.setFixedSize(400, 200)
+    create_stacked_button(hungry_btn, "Hungry", "pictures/hungry.png")
 
-    thirsty_button = QPushButton("Thirsty")
-    thirsty_button.setStyleSheet(needs_style)
-    thirsty_button.setFixedSize(400, 200)
+    thirsty_btn = QPushButton()
+    thirsty_btn.setStyleSheet(needs_style)
+    thirsty_btn.setFixedSize(400, 200)
+    create_stacked_button(thirsty_btn, "Thirsty", "pictures/thirsty.png")
 
-    bathroom_button = QPushButton("Bathroom")
-    bathroom_button.setStyleSheet(needs_style)
-    bathroom_button.setFixedSize(400, 200)
+    bathroom_btn = QPushButton()
+    bathroom_btn.setStyleSheet(needs_style)
+    bathroom_btn.setFixedSize(400, 200)
+    create_stacked_button(bathroom_btn, "Bathroom", "pictures/bathroom.png")
 
-    # Layout Management
-    layout.setContentsMargins(10, 10, 10, 10)
-    layout.setSpacing(10)
+    # GRID LAYOUT SECTION 
+    grid_layout.setContentsMargins(20, 20, 20, 20)
+    grid_layout.setSpacing(15)
 
-    # General/Social Needs
-    layout.addWidget(yes_button, 0, 0)
-    layout.addWidget(no_button, 0, 1)
-    layout.addWidget(help_button, 0, 2)
+    grid_layout.addWidget(yes_btn, 0, 0)
+    grid_layout.addWidget(no_btn, 0, 1)
+    grid_layout.addWidget(help_btn, 0, 2)
 
-    # Physical Needs
-    layout.addWidget(hungry_button, 1, 0)
-    layout.addWidget(thirsty_button, 1, 1)
-    layout.addWidget(bathroom_button, 1, 2)
+    grid_layout.addWidget(hungry_btn, 1, 0)
+    grid_layout.addWidget(thirsty_btn, 1, 1)
+    grid_layout.addWidget(bathroom_btn, 1, 2)
 
     window.showMaximized()
     sys.exit(app.exec_())
