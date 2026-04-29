@@ -16,36 +16,44 @@ def App():
     window.setWindowTitle("AAC Device")
 
     # button styling (may change later)
-    button_style = """
-        background-color: #ffd9cc;
-        color: black;
-        font-size: 36px;
-        border-radius: 10px;
-    """
+    # Blue for Social/General
+    social_style = """
+    background-color: #add8e6; 
+    color: black;
+    font-size: 36px;
+    border-radius: 15px;
+        """
 
+# Green for Physical Needs
+    needs_style = """
+    background-color: #b1e4b1;
+    color: black;
+    font-size: 36px;
+    border-radius: 15px;
+        """
     # Button Creation
     yes_button = QPushButton("Yes")
-    yes_button.setStyleSheet(button_style)
+    yes_button.setStyleSheet(social_style)
     yes_button.setFixedSize(400, 200)
 
     no_button = QPushButton("No")
-    no_button.setStyleSheet(button_style)
+    no_button.setStyleSheet(social_style)
     no_button.setFixedSize(400, 200)
 
     help_button = QPushButton("Help")
-    help_button.setStyleSheet(button_style)
+    help_button.setStyleSheet(social_style)
     help_button.setFixedSize(400, 200)
 
     hungry_button = QPushButton("Hungry")
-    hungry_button.setStyleSheet(button_style)
+    hungry_button.setStyleSheet(needs_style)
     hungry_button.setFixedSize(400, 200)
 
     thirsty_button = QPushButton("Thirsty")
-    thirsty_button.setStyleSheet(button_style)
+    thirsty_button.setStyleSheet(needs_style)
     thirsty_button.setFixedSize(400, 200)
 
     bathroom_button = QPushButton("Bathroom")
-    bathroom_button.setStyleSheet(button_style)
+    bathroom_button.setStyleSheet(needs_style)
     bathroom_button.setFixedSize(400, 200)
 
     # Layout Management
